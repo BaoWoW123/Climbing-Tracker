@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "scheme": "acme",
+    "web": {
+      "bundler": "metro"
+    },
+    "name": "climbing-tracker-app",
+    "slug": "climbing-tracker-app"
+  }
+}
