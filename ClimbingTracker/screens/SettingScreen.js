@@ -2,14 +2,12 @@ import React from "react";
 import { View, Text } from "react-native";
 import styles from "../styles/styles";
 
-const RoutesScreen = (props) => {
+const SettingScreen = (props) => {
     return (
         <View style={styles.container}>
-            <Text>
-                Routes Screen
-            </Text>
+            <Text>Setting Screen</Text>
         </View>
     )
 }
 
-export default RoutesScreen;
+export default SettingScreen;
