@@ -3,6 +3,7 @@ import { View, Text, Button } from "react-native";
 import { DateTime } from "luxon";
 import styles from "../styles/styles";
 import ProgressCircle from "./ProgressCircle";
+import Grades from "./Grades";
 
 const Dashboard = (props) => {
   const date = DateTime.now().toLocaleString();
@@ -17,13 +18,7 @@ const Dashboard = (props) => {
         <ProgressCircle value={percent}/>
         <Text style={{fontSize:15}}> Complete {remainder} more routes to achieve daily goal!</Text>
         <Text style={styles.dashboard}>Routes Completed Today: {totalRoutes}</Text>
-<Button title="V0"></Button>
-<Button title="V1"></Button>
-<Button title="V2"></Button>
-<Button title="V3"></Button>
-<Button title="V4"></Button>
-<Button title="V5"></Button>
-
+        <Grades/>
     </View>
   );
 };

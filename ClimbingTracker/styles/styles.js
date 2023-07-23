@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
         alignContent:'stretch'
     },
     dashboard: {
-        fontSize:'30',
+        fontSize:30,
         flexWrap:'wrap'
     }
   });

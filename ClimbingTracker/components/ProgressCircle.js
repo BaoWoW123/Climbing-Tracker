@@ -11,7 +11,6 @@ const ProgressCircle = (props) => {
       activeStrokeColor="dodgerblue"
       activeStrokeSecondaryColor='darkblue'
       inActiveStrokeColor="skyblue"
-      
     />
   );
 };
