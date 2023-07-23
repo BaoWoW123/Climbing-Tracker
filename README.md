@@ -1,2 +1,2 @@
 # Climbing-Tracker
-An app that tracks a user's climbing progress.  
+A mobile app that tracks a user's climbing progress & data.  

@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, StatusBar } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "./screens/HomeScreen";
@@ -13,10 +13,11 @@ const Tab = createBottomTabNavigator();
 export default function App() {
   return (
     <NavigationContainer>
+      <StatusBar barStyle="dark-content" />
       <Tab.Navigator
-        screenOptions={{
+      /*         screenOptions={{
           activeTintColor: "dodgerblue",
-          inactiveTintColor: "gray",
+          inactiveTintColor: "black",
           activeBackgroundColor: "lightgray",
           inactiveBackgroundColor: "white",
           labelStyle: {
@@ -24,57 +25,81 @@ export default function App() {
             fontWeight: "bold",
             marginBottom: 5,
           },
-        }}
+        }} */
       >
         <Tab.Screen
           name="Home"
           component={HomeScreen}
-          options={{
+          options={({navigation}) => ({
             tabBarLabel: "Home",
+             headerRight: () => (
+              <Icon
+                name="dots-vertical"
+                size={30}
+                paddingRight={20}
+                onPress={() => alert('Settings not added')/* {navigation.navigate('Settings')} */}
+              />
+            ),
             tabBarIcon: ({ color, size }) => {
               return <Icon name="home" size={size} color={color} />;
             },
-          }}
+          })}
         />
         <Tab.Screen
           name="Dashboard"
           component={DashboardScreen}
-          options={{
+          options= {({navigation}) => ({
             tabBarLabel: "Dashboard",
+            headerRight: () => (
+              <Icon
+                name="dots-vertical"
+                size={30}
+                paddingRight={20}
+                onPress={() => alert('Settings not added')/* {navigation.navigate('Settings')} */}
+              />
+            ),
             tabBarIcon: ({ color, size }) => {
-              return <Icon name="calendar-blank-outline" size={size} color={color} />;
+              return (
+                <Icon name="calendar-blank-outline" size={size} color={color} />
+              );
             },
-          }}
+          })}
         />
         <Tab.Screen
           name="Routes"
           component={RoutesScreen}
-          options={{
+          options= {({navigation}) => ({
             tabBarLabel: "Routes",
+             headerRight: () => (
+              <Icon
+                name="dots-vertical"
+                size={30}
+                paddingRight={20}
+                onPress={() => alert('Settings not added')/* {navigation.navigate('Settings')} */}
+              />
+            ),
             tabBarIcon: ({ color, size }) => {
               return <Icon name="atlassian" size={size} color={color} />;
             },
-          }}
+          })}
         />
-                <Tab.Screen
+        <Tab.Screen
           name="Profile"
           component={ProfileScreen}
-          options={{
+          options= {({navigation}) => ({
             tabBarLabel: "Profile",
+             headerRight: () => (
+              <Icon
+                name="dots-vertical"
+                size={30}
+                paddingRight={20}
+                onPress={() => alert('Settings not added')/* {navigation.navigate('Settings')} */}
+              />
+            ),
             tabBarIcon: ({ color, size }) => {
               return <Icon name="account" size={size} color={color} />;
             },
-          }}
-        />
-                <Tab.Screen
-          name="Setting"
-          component={SettingScreen}
-          options={{
-            tabBarLabel: "Settings",
-            tabBarIcon: ({ color, size }) => {
-              return <Icon name="cog" size={size} color={color} />;
-            },
-          }}
+          })}
         />
       </Tab.Navigator>
     </NavigationContainer>
