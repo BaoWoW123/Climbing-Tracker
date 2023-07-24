@@ -1,16 +1,24 @@
 import React from "react";
-import { View,Text } from "react-native";
-import { Button } from "react-native";
 import HomeComponent from "../components/HomeComponent";
-import styles from "../styles/styles";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import GradeScreen from "./GradesScreen";
+import { NativeBaseProvider } from "native-base";
+
+const Stack = createNativeStackNavigator();
 
 const HomeScreen = (props) => {
-    return (
-        <View style={styles.container}>
-            <HomeComponent navigation={props.navigation}/>
-            <Button title="SCREEN BUTTON TO ROUTES" onPress={()=>props.navigation.navigate('Routes')}/>
-        </View>
-    )
-}
+  return (
+    <NativeBaseProvider>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="HomeMain"
+          component={HomeComponent}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen name="Grades" component={GradeScreen} />
+      </Stack.Navigator>
+    </NativeBaseProvider>
+  );
+};
 
 export default HomeScreen;
