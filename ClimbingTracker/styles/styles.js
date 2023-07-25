@@ -27,9 +27,10 @@ const styles = StyleSheet.create({
     },
     gradeText: {
         fontSize:20,
-        padding:20,
-        width:200
     },
+    gradeFooter: {
+        fontSize:20,
+    }
   });
   
   export default styles;
