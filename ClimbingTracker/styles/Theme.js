@@ -2,7 +2,8 @@ import { extendTheme } from "native-base";
 
 const Theme = extendTheme({
   colors: {
-    primaryYellow: "red",
+    white: "white",
+    black: "black",
     rose: {
       50: "#fff1f2",
       100: "#ffe4e6",
@@ -26,25 +27,39 @@ const Theme = extendTheme({
       800: "#3730a3",
       900: "#312e81",
     },
-    light: {
-      primary: "red.200",
-      secondary: "rose.500",
-      tertiary: "rose.50",
-      text: "white",
-      background: "primaryRed",
+    light: {//white with indigo
+        primary: "#6366f1", //500
+        secondary: "#c7d2fe",//200
+        light: "#e0e7ff", //100
+        background: "#6366f1",
+        dark: "#3730a3",
     },
-    dark: {
-      primary: "indigo.900",
-      secondary: "indigo.500",
-      tertiary: "indigo.50",
-      text: "black",
+    dark: {//black with rose
+
+      primary: "#f43f5e", //500
+      secondary: "#fecdd3", //200
+      light:  "#ffe4e6", //100
+      background: "#f43f5e",
+      dark: "#9f1239",
     },
   },
   components: {
+    Box: {
+      variants: {
+        safeArea: {
+          _light: {
+            bg: "gray.100",
+          },
+          _dark: {
+            bg: "black",
+          },
+        },
+      },
+    },
     View: {
       baseStyle: {
         _light: {
-          bg: "gray.200",
+          bg: "gray.100",
         },
         _dark: {
           bg: "black",
@@ -52,19 +67,18 @@ const Theme = extendTheme({
       },
     },
     Button: {
-        defaultProps: {
-                colorScheme:'trueGray',
-                borderWidth:1,
+      defaultProps: {
+        colorScheme: "trueGray",
+        borderWidth: 1,
+      },
+      baseStyle: {
+        _dark: {
+          borderColor: "white",
         },
-        baseStyle: {
-            _dark: {
-                borderColor:'white'
-            },
-            _light: {
-                borderColor:'black'
-
-            }
+        _light: {
+          borderColor: "black",
         },
+      },
     },
   },
   config: {

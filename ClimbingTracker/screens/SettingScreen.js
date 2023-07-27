@@ -1,10 +1,9 @@
-import { View, Text, colorMode, useColorMode, Switch } from "native-base";
-import React from "react";
+import { View, Text, colorMode, useColorMode, Switch, Button } from "native-base";
+import React, { useEffect } from "react";
 import styles from "../styles/styles";
 
-const SettingScreen = (props) => {
+const SettingScreen = () => {
     const {colorMode, toggleColorMode} = useColorMode();
-
 
     return (
         <View  flex='1' style={styles.container}>
@@ -13,7 +12,7 @@ const SettingScreen = (props) => {
             </Text>
               <Switch offThumbColor={'white'} onTrackColor='black' onThumbColor={'white'}
               value={colorMode ==='dark'}
-                onValueChange={() =>toggleColorMode()}
+                onValueChange={toggleColorMode}
               />
         </View>
     )

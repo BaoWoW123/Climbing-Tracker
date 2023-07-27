@@ -5,21 +5,32 @@ import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import DashboardScreen from "../screens/DashboardScreen";
 import ProfileScreen from "../screens/ProfileScreen";
 import SettingScreen from "../screens/SettingScreen";
+import { useColorMode } from "native-base";
+import Theme from "../styles/Theme";
 
 const Tab = createMaterialTopTabNavigator();
 
 const BottomTabs = () => {
+    const {colorMode} = useColorMode();
+
+    const themeBg = Theme.colors.light.background
   return (
     <Tab.Navigator
       tabBarPosition="bottom"
       screenOptions={{
-        tabBarActiveTintColor: "dodgerblue",
+        tabBarActiveTintColor:'white',
         tabBarInactiveTintColor: "black",
         tabBarShowLabel: false,
+        tabBarIndicatorStyle: {
+            backgroundColor:'white'
+        },
         tabBarIconStyle: {
             width:'100%',
             height:'100%'
         },
+        tabBarStyle:{
+            backgroundColor:colorMode==='light'? Theme.colors.light.background : Theme.colors.dark.background
+        }
       }}
     >
       <Tab.Screen
@@ -70,7 +81,7 @@ const BottomTabs = () => {
         options={{
           tabBarLabel: "Settings",
           tabBarIcon: ({ color }) => {
-            return <Icon name="dots-vertical" size={25} color={color} />;
+            return <Icon name="dots-vertical" size={25} color={color} />
           },
         }}
       />
