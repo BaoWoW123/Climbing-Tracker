@@ -1,6 +1,5 @@
 import React from "react";
 import Dashboard from "../components/Dashboard";
-import { NativeBaseProvider } from "native-base";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import GradeScreen from "./GradesScreen";
 
@@ -8,7 +7,6 @@ const Stack = createNativeStackNavigator();
 
 const DashboardScreen = (props) => {
   return (
-    <NativeBaseProvider>
       <Stack.Navigator>
         <Stack.Screen
           name="DashboardMain"
@@ -17,7 +15,6 @@ const DashboardScreen = (props) => {
         />
         <Stack.Screen name="Grades" component={GradeScreen} />
       </Stack.Navigator>
-    </NativeBaseProvider>
   );
 };
 

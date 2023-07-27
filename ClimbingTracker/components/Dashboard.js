@@ -1,10 +1,9 @@
 import React, { useState, useRef } from "react";
-import { Text, Dimensions } from "react-native";
 import { DateTime } from "luxon";
 import styles from "../styles/styles";
 import ProgressCircle from "./ProgressCircle";
-import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import { Box, Center, Flex, ScrollView, Button, HStack } from "native-base";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import { Icon, Text, Box, Center, Flex, ScrollView, Button, HStack,View } from "native-base";
 import { gradeArr, colorArr } from "../constants/grades";
 
 const Dashboard = (props) => {
@@ -27,8 +26,10 @@ const Dashboard = (props) => {
   };
 
   return (
-    <Flex align="center" bg="blue.100" flex="1">
-      <Center p={3} gap={2} minW="100%">
+    <View flex="1">
+            <Flex align="center" flex="1">
+      <Center p={3} gap={2}>
+        <Text fontSize={40}>Dashboard</Text>
         <ProgressCircle value={percent} />
         <Center minW="100%" _text={{ fontSize: "xl" }}>
           <Box _text={{ fontSize: "3xl", fontWeight: "bold" }}>{remainder}</Box>
@@ -37,19 +38,31 @@ const Dashboard = (props) => {
           </Center>
         </Center>
       </Center>
-      <Text style={styles.dashboard}>
+      <Text fontSize={25}>
         Routes Completed Today: {totalRoutes}
       </Text>
       <Flex flexDir="row" align="center">
-        Grading Scale
+        Grading Scale {''}
         <Icon
+          as={MaterialCommunityIcons}
           name="information-outline"
-          size={30}
+          size='5'
           onPress={() => props.navigation.navigate("Grades")}
         ></Icon>
       </Flex>
       <Center flex="1">
-        <Text>1</Text>
+        <HStack
+          justifyContent="space-evenly"
+          alignItems="center"
+          flexDir="row"
+          minWidth='60%'
+          maxWidth='60%'
+        >
+          <Button>-</Button>
+          <Text fontSize={50}>{grade}</Text>
+          <Button>+</Button>
+        </HStack>
+        <Button>Save</Button>
       </Center>
       <Flex flex="1">
         <ScrollView
@@ -62,8 +75,8 @@ const Dashboard = (props) => {
               return (
                 <Box key={idx}>
                   <Button
-                    rounded="10"
                     bg={`${colorArr[idx]}`}
+                    borderWidth='3'
                     size={120}
                     _text={{ fontSize: "3xl" }}
                     onPress={() => {
@@ -71,7 +84,6 @@ const Dashboard = (props) => {
                       handleScrollToIdx(idx - 1);
                     }}
                     style={{
-                      borderWidth: 5,
                       borderColor: idx - 1 == selectedIdx ? "white" : "black",
                     }}
                   >
@@ -84,11 +96,12 @@ const Dashboard = (props) => {
         </ScrollView>
       </Flex>
     </Flex>
+    </View>
+
   );
 };
 
 /* 
-     
      
  */
 

@@ -1,17 +1,21 @@
-import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import React from "react";
-import { View, Text } from 'react-native';
 import styles from "../styles/styles";
-import { Flex } from "native-base";
+import { Icon, View, Button, Flex, Text, Center} from "native-base";
 
 const HomeComponent = (props) => {
     return (
-        <View style={styles.container}>
+        <View style={styles.container} flex='1'>
             <Text>Home Page</Text>
             <Flex flexDir='row' align='center'>
-        Grading Scale 
-            <Icon name='information-outline' size={40}onPress={()=>{props.navigation.navigate('Grades')}}/>
+        Grading Scale {''}
+            <Icon as={MaterialCommunityIcons} name='information-outline' size='5' onPress={()=>{props.navigation.navigate('Grades')}}/>
         </Flex>
+        <Center flex='1' width='100%' justifyContent='center'>
+            <Button>
+                This button does nothing
+            </Button>
+        </Center>
         </View>
         )
 }
