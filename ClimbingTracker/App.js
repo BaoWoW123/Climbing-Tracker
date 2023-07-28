@@ -12,7 +12,7 @@ export default function App() {
   return (
     <NativeBaseProvider theme={Theme}>
       <NavigationContainer>
-        <StatusBar />
+        <StatusBar barStyle={'dark-content'}/>
         <Stack.Navigator>
           <Stack.Screen
             name="BottomTabs"

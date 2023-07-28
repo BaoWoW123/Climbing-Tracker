@@ -66,8 +66,7 @@ const Theme = extendTheme({
     },
     Button: {
       defaultProps: {
-        colorScheme: "trueGray",
-        borderWidth: 1,
+       borderWidth: 1,
       },
       baseStyle: {
         _dark: {
