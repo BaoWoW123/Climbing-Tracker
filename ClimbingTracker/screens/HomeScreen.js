@@ -5,7 +5,7 @@ import GradeScreen from "./GradesScreen";
 
 const Stack = createNativeStackNavigator();
 
-const HomeScreen = (props) => {
+const HomeScreen = () => {
   return (
       <Stack.Navigator>
         <Stack.Screen

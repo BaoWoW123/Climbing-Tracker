@@ -11,42 +11,44 @@ import Theme from "../styles/Theme";
 const Tab = createMaterialTopTabNavigator();
 
 const BottomTabs = () => {
-    const {colorMode} = useColorMode();
+  const { colorMode } = useColorMode();
 
-    const themeBg = Theme.colors.light.background
   return (
     <Tab.Navigator
       tabBarPosition="bottom"
       screenOptions={{
-        tabBarActiveTintColor:'white',
+        tabBarActiveTintColor: "white",
         tabBarInactiveTintColor: "black",
         tabBarShowLabel: false,
         tabBarIndicatorStyle: {
-            backgroundColor:'white'
+          backgroundColor: "white",
         },
         tabBarIconStyle: {
-            width:'100%',
-            height:'100%'
+          width: "100%",
+          height: "100%",
         },
-        tabBarStyle:{
-            backgroundColor:colorMode==='light'? Theme.colors.light.background : Theme.colors.dark.background
-        }
+        tabBarStyle: {
+          backgroundColor:
+            colorMode === "light"
+              ? Theme.colors.light.primary
+              : Theme.colors.dark.primary,
+        },
       }}
     >
       <Tab.Screen
-          name="Home"
-          component={HomeScreen}
-          options={({navigation}) => ({
-            tabBarLabel: "Home",
-            tabBarIcon: ({ color }) => {
-              return <Icon name="home" size={25} color={color} />;
-            },
-          })}
-        />
+        name="Home"
+        component={HomeScreen}
+        options={({ navigation }) => ({
+          tabBarLabel: "Home",
+          tabBarIcon: ({ color }) => {
+            return <Icon name="home" size={25} color={color} />;
+          },
+        })}
+      />
       <Tab.Screen
         name="Dashboard"
         component={DashboardScreen}
-        options={({ navigation }) => ({
+        options={() => ({
           tabBarLabel: "Dashboard",
           tabBarIcon: ({ color }) => {
             return (
@@ -58,7 +60,7 @@ const BottomTabs = () => {
       <Tab.Screen
         name="Routes"
         component={RoutesScreen}
-        options={({ navigation }) => ({
+        options={() => ({
           tabBarLabel: "Routes",
           tabBarIcon: ({ color }) => {
             return <Icon name="atlassian" size={25} color={color} />;
@@ -68,7 +70,7 @@ const BottomTabs = () => {
       <Tab.Screen
         name="Profile"
         component={ProfileScreen}
-        options={({ navigation }) => ({
+        options={() => ({
           tabBarLabel: "Profile",
           tabBarIcon: ({ color }) => {
             return <Icon name="account" size={25} color={color} />;
@@ -77,11 +79,11 @@ const BottomTabs = () => {
       />
       <Tab.Screen
         name="Settings"
-        component={SettingScreen}
+        children={() => <SettingScreen />}
         options={{
           tabBarLabel: "Settings",
           tabBarIcon: ({ color }) => {
-            return <Icon name="dots-vertical" size={25} color={color} />
+            return <Icon name="dots-vertical" size={25} color={color} />;
           },
         }}
       />

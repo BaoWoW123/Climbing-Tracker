@@ -27,19 +27,17 @@ const Theme = extendTheme({
       800: "#3730a3",
       900: "#312e81",
     },
-    light: {//white with indigo
-        primary: "#6366f1", //500
-        secondary: "#c7d2fe",//200
-        light: "#e0e7ff", //100
-        background: "#6366f1",
-        dark: "#3730a3",
+    //primary:500,secondary:200,light:100,dark:800
+    light: {//indigo
+        primary: "#6366f1", 
+        secondary: "#c7d2fe",
+        light: "#e0e7ff", 
+        dark: "#3730a3", 
     },
-    dark: {//black with rose
-
-      primary: "#f43f5e", //500
-      secondary: "#fecdd3", //200
-      light:  "#ffe4e6", //100
-      background: "#f43f5e",
+    dark: {//rose
+      primary: "#f43f5e", 
+      secondary: "#fecdd3", 
+      light:  "#ffe4e6", 
       dark: "#9f1239",
     },
   },
